@@ -1,0 +1,9 @@
+{
+  "name": "QuickStart-es6",
+  "version": "1.0.0",
+  "description": "es6 + webpack 环境快速搭建",
+  "main": "index.js",
+  "repository": "https://github.com/borenXue/QuickStart-es6.git",
+  "author": "xueboren <xueboren001@outlook.com>",
+  "license": "MIT"
+}
