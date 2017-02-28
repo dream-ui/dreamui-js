@@ -1,6 +1,6 @@
 # ES6 + Webpack 开发环境快速搭建
 
-> [说明文档](http://books.xueboren.com/frontend/zh-cn/quick-start/es6.html)
+> [说明文档](http://books.xueboren.com/frontend/zh-cn/quick-start/es6.html)<br/>
 > [示例代码](https://github.com/borenXue/QuickStart-es6.git)
 
 * [项目简介](#项目简介)
