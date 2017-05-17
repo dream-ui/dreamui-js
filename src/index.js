@@ -1,15 +1,11 @@
+const base = require('./base/base')
+const broswer = require('./broswer/broswer')
+const event = require('./event/event')
+const types = require('./types/types')
 
-class QuickStartTest {
-
-  constructor () {
-    console.log('实例初始化...')
-  }
-  static getVersion () {
-    return '1.0.0'
-  }
-
+module.exports = {
+  base,
+  broswer,
+  event,
+  types
 }
-
-QuickStartTest.name = 'QuickStartTest'
-
-module.exports = QuickStartTest
