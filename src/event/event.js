@@ -20,7 +20,7 @@ class PubSub {
    * @param {string} topic
    */
   publish (topic, ...rest) {
-    if (types.isEmptyString(topic)) {
+    if (types.isNotBlankString(topic)) {
       return
     }
     if (!this.topics[topic]) {
@@ -42,7 +42,7 @@ class PubSub {
    * @param {function | Array<function>} func
    */
   subscribe (topic, func) {
-    if (types.isEmptyString(topic)) {
+    if (types.isNotBlankString(topic)) {
       return
     }
     if (!types.isArray(this.pubsub[topic])) {
@@ -61,7 +61,7 @@ class PubSub {
    * @param {function | Array<function>} func
    */
   unSubscribe (topic, func) {
-    if (types.isEmptyString(topic)) {
+    if (types.isNotBlankString(topic)) {
       return
     }
     if (types.isArray(this.pubsub[topic])) {
