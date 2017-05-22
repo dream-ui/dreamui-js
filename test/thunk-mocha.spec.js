@@ -26,12 +26,11 @@ it('support generator style async test', function * () {
   // ...
 });
 
-it('support async/await style async test', async function () {
-  // do some test
-  await new Promise(function (resolve, reject) {
-    resolve();
-  });
-});
+// it('support async/await style async test', async function () {
+//   await new Promise(function (resolve, reject) {
+//     resolve();
+//   });
+// });
 
 it.skip('support Rx.Observable style async test', function () {
   // do some test

@@ -1,4 +1,4 @@
-
+const assert = require('power-assert');
 const { compareVersion, toThousandBit } = require('./../src/base/base');
 const expect = require('chai').expect;
 
@@ -25,6 +25,7 @@ describe('版本号比较: compareVersion', function () {
   });
 
   it('2.0.0 应该大于 1.9.99', function () {
+    // assert(compareVersion('2.0.0', '1.9.99') === 10); // power-assert 示例: 错误信息详细
     expect(compareVersion('2.0.0', '1.9.99')).to.be.equal(1);
   });
 
