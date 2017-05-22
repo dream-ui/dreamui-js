@@ -2,7 +2,28 @@
 const { compareVersion, toThousandBit } = require('./../src/base/base');
 const expect = require('chai').expect;
 
+beforeEach(function () {
+  console.log('      ----- global beforeEach -----');
+});
+
 describe('版本号比较: compareVersion', function () {
+
+  before('分配资源: ', function () {
+    console.log('      ----- before -----');
+  });
+
+  after('回收资源: ', function () {
+    console.log('      ----- after -----');
+  });
+
+  beforeEach(function () {
+    console.log('      ----- beforeEach -----');
+  });
+
+  afterEach(function () {
+    console.log('      ----- afterEach -----');
+  });
+
   it('2.0.0 应该大于 1.9.99', function () {
     expect(compareVersion('2.0.0', '1.9.99')).to.be.equal(1);
   });
@@ -19,6 +40,20 @@ describe('版本号比较: compareVersion', function () {
   });
   it('1.6.7 应该小于 1.6.59.78.8', function () {
     expect(compareVersion('2.0.0', '2.1')).to.be.equal(-1);
+  });
+
+});
+
+describe('#TODO1', function() {
+  it('should return -1 when the value is not present');
+});
+
+describe('#TODO2', function() {
+  it.skip('should return -1 when the value is not present', function () {
+    this.slow(10000);
+  });
+  it('#动态判断是否被执行', function() {
+    this.skip();
   });
 });
 
