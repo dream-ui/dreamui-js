@@ -18,6 +18,7 @@ build/
 doc/
 docs/
 manual/
+reports/
 
 # sass 相关
 .sass-cache/
