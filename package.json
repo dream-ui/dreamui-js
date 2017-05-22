@@ -9,6 +9,8 @@
     "scripts": {
         "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
         "build": "export NODE_ENV=production && webpack --config webpack.conf.js",
+        "test": "yarn eslint && yarn test:mocha",
+        "test:mocha": "mocha test",
         "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
         "eslint:html": "eslint --format html ./src/* -o ./dist/eslint/index.html"
     },
