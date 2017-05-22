@@ -3657,6 +3657,16 @@ through@^2.3.6:
   version "2.3.8"
   resolved "http://registry.npm.taobao.org/through/download/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
+thunk-mocha@^1.0.8:
+  version "1.0.8"
+  resolved "http://registry.npm.taobao.org/thunk-mocha/download/thunk-mocha-1.0.8.tgz#347ae5af07f1eb0ab04c3746355f453b82739a5d"
+  dependencies:
+    thunks "^4.7.5"
+
+thunks@^4.7.5:
+  version "4.7.6"
+  resolved "http://registry.npm.taobao.org/thunks/download/thunks-4.7.6.tgz#ca0c35221957d969e79bbcc718ac1ae119521a41"
+
 timers-browserify@^2.0.2:
   version "2.0.2"
   resolved "http://registry.npm.taobao.org/timers-browserify/download/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"

@@ -45,6 +45,7 @@
         "eslint-plugin-standard": "^2.0.1",
         "mocha": "^3.4.1",
         "mochawesome": "^2.2.0",
+        "thunk-mocha": "^1.0.8",
         "uglifyjs-webpack-plugin": "^0.2.1",
         "webpack": "^2.2.1",
         "webpack-dev-server": "^2.4.1"
