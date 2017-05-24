@@ -6,18 +6,22 @@ let pubsub = null;
 
 describe('订阅发布模式: PubSub', function () {
 
-  beforeEach((done) => {
+  beforeEach(() => {
     pubsub = new PubSub();
-    done();
   });
 
-  it('发布 test 事件', function () {
-    pubsub.subscribe('test', (name) => {
+  it(`发布 test 事件后，触发 test 事件订阅器，并且参数为 'a'`, function (done) {
+    pubsub.on('test', (name, ...rest) => {
       if (name === 'test') {
-        expect('name').to.be.equal('test');
+        if (rest[0] === 'a') {
+          done();
+        } else {
+          done(new Error(`params should contain the string 'a'`));
+        }
+      } else {
+        done(new Error(`event-name should be the stirng 'test'`));
       }
     });
-    pubsub.publish('test');
-    // expect(compareVersion('2.0.0', '1.9.99')).to.be.equal(1);
+    pubsub.emit('test', 'a');
   });
 });

@@ -16,11 +16,11 @@ class PubSub {
   }
 
   /**
-   * 发布主题
+   * 发布主题 publish emit
    * @param {string} topic
    */
-  publish (topic, ...rest) {
-    if (!types.isBlankString(topic)) {
+  emit (topic, ...rest) {
+    if (types.isBlankString(topic)) {
       return
     }
     if (!this.topics[topic]) {
@@ -30,19 +30,20 @@ class PubSub {
       const funcList = this.pubsub[topic]
       for (const func of funcList) {
         if (types.isFunction(func)) {
-          func.apply(null, ...rest)
+          var params = [topic, ...rest]
+          func.apply(null, params)
         }
       }
     }
   }
 
   /**
-   * 订阅主题
+   * 订阅主题 on
    * @param {string} topic
    * @param {function | Array<function>} func
    */
-  subscribe (topic, func) {
-    if (!types.isBlankString(topic)) {
+  on (topic, func) {
+    if (types.isBlankString(topic)) {
       return
     }
     if (!types.isArray(this.pubsub[topic])) {
@@ -56,11 +57,11 @@ class PubSub {
   }
 
   /**
-   * 取消订阅某个主题
+   * 取消订阅某个主题 unSubscribe
    * @param {string} topic
    * @param {function | Array<function>} func
    */
-  unSubscribe (topic, func) {
+  unOn (topic, func) {
     if (!types.isBlankString(topic)) {
       return
     }
