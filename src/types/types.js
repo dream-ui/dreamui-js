@@ -1,10 +1,13 @@
 
 const isFunction = (func) => {
-  return func && typeof func === 'function'
+  return !(!func || typeof func !== 'function')
 }
 
-const isNotBlankString = (str) => {
-  return str && typeof str === 'string' && str.trim && str.trim() !== ''
+const isBlankString = (str) => {
+  if ((str || str === '') && typeof str === 'string' && str.trim && str.trim() === '') {
+    return true
+  }
+  return false
 }
 
 const isTrue = (boo) => {
@@ -16,7 +19,24 @@ const isFalse = (boo) => {
 }
 
 const isArray = (arr) => {
-  return arr && arr instanceof Array
+  if (arr && arr instanceof Array) {
+    return true
+  }
+  return false
+}
+
+const arrayEqual = (arr1, arr2) => {
+  if (isArray(arr1) && isArray(arr2)) {
+    if (arr1.length === arr2.length) {
+      for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+          return false
+        }
+      }
+      return true
+    }
+  }
+  return false
 }
 
 // ////////////////////////////////////////////////////
@@ -58,15 +78,16 @@ const arrayRemoveRepeat = (arry1, arry2) => {
       oldArray = arrayRemoveObject(oldArray, item)
     }
   }
-  return arry1
+  return oldArray
 }
 
 module.exports = {
   isFunction,
-  isNotBlankString,
+  isBlankString,
   isTrue,
   isFalse,
   isArray,
+  arrayEqual,
   arrayRemoveIndex,
   arrayRemoveObject,
   arrayRemoveRepeat
