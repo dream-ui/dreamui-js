@@ -8,8 +8,8 @@
     "license": "MIT",
     "scripts": {
         "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
-        "build": "export NODE_ENV=production && webpack --config webpack.conf.js",
-        "test": "yarn eslint && yarn test:mocha",
+        "build": "yarn test && export NODE_ENV=production && webpack --config webpack.conf.js",
+        "test": "yarn eslint && yarn mocha",
         "mocha": "mocha --require intelli-espower-loader test",
         "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
         "reports": "rm -rf reports && yarn eslint:html && yarn mocha:html && yarn istanbul:html",
