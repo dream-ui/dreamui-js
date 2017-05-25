@@ -42,7 +42,10 @@ describe('types: 数据类型相关函数', function () {
   // arrayRemoveRepeat
   var rArray1 = [1, 2, 3, 4],
       rArray2 = [1, 3, 5, 6],
-      rArrayResult = [2, 4];
+      rArrayResult = [2, 4],
+      rArray12MergeResult = [1, 2, 3, 4, 5, 6],
+      rArray12UniqResult = [2, 3, 5, 6],
+      rArray12IntersectionResult = [1, 3];
 
   describe('isFunction', function () {
     it('普通函数是函数', function () {
@@ -171,9 +174,29 @@ describe('types: 数据类型相关函数', function () {
     });
   });
 
-  describe('arrayRemoveRepeat', function () {
+  describe('数组差集: arrayRemoveRepeat', function () {
     it(`[${rArray1}] 去除 [${rArray2}] 中包含的元素, 结果为: [${rArrayResult}]`, function () {
       expect(arrayEqual(arrayRemoveRepeat(rArray1, rArray2), rArrayResult)).to.be.equal(true);
+    });
+  });
+
+  // 实现参考: http://blog.csdn.net/u010571844/article/details/50727714
+  describe('双数组去重: arrayUnion', function () {
+    it.skip(`[${rArray1}] 与 [${rArray2}] 去重结果为: [${rArray12UniqResult}]`, function () {
+      expect(arrayEqual(arrayUnion(rArray1, rArray2), rArray12UniqResult)).to.be.equal(true);
+    });
+  });
+
+  describe('数组并集合并: arrayMerge', function () {
+    it.skip(`[${rArray1}] 与 [${rArray2}] 并集合并结果为: [${rArray12MergeResult}]`, function () {
+      expect(arrayEqual(arrayMerge(rArray1, rArray2), rArray12MergeResult)).to.be.equal(true);
+    });
+  });
+
+  // 两个数组都包含的值
+  describe('数组交集: arrayIntersection', function () {
+    it.skip(`[${rArray1}] 与 [${rArray2}] 交集为: [${rArray12IntersectionResult}]`, function () {
+      expect(arrayEqual(arrayIntersection(rArray1, rArray2), rArray12IntersectionResult)).to.be.equal(true);
     });
   });
 
