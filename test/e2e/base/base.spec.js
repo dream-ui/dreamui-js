@@ -1,5 +1,5 @@
 const assert = require('power-assert');
-const { compareVersion, toThousandBit } = require('./../src/base/base');
+const { compareVersion, toThousandBit } = require('./../../../src/base/base');
 const expect = require('chai').expect;
 
 // beforeEach(function () {

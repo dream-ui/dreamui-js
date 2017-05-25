@@ -8,7 +8,7 @@ const {
   arrayRemoveIndex,
   arrayRemoveObject,
   arrayRemoveRepeat
-} = require('./../src/types/types');
+} = require('./../../../src/types/types');
 const expect = require('chai').expect;
 
 describe('types: 数据类型相关函数', function () {

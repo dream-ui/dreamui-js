@@ -1,5 +1,5 @@
 
-const PubSub = require('./../src/event/event');
+const PubSub = require('./../../../src/event/event');
 const expect = require('chai').expect;
 
 let pubsub = null;
