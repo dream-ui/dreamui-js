@@ -1,13 +1,10 @@
 
 const isFunction = (func) => {
-  return !(!func || typeof func !== 'function')
+  return typeof func === 'function'
 }
 
 const isBlankString = (str) => {
-  if ((str || str === '') && typeof str === 'string' && str.trim && str.trim() === '') {
-    return true
-  }
-  return false
+  return typeof str === 'string' && str.trim() === ''
 }
 
 const isTrue = (boo) => {
@@ -19,10 +16,7 @@ const isFalse = (boo) => {
 }
 
 const isArray = (arr) => {
-  if (arr && arr instanceof Array) {
-    return true
-  }
-  return false
+  return typeof arr === 'object' && arr instanceof Array
 }
 
 const arrayEqual = (arr1, arr2) => {
@@ -64,7 +58,7 @@ const arrayRemoveObject = (arr, obj) => {
 }
 
 /**
- * 数组去重
+ * 数组差集
  *  以 arry1 为基础，去除 arry2 中包含的元素，并返回一个新的数组
  *  若 arry1 无改动, 则直接返回 arry1
  * @param {array} arry1
