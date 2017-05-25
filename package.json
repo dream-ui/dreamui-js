@@ -12,7 +12,7 @@
         "test": "yarn eslint && yarn mocha",
         "mocha": "mocha test",
         "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
-        "istanbul:codecov": "istanbul cover _mocha -- -R spec test/e2e/**/*.spec.js && codecov",
+        "istanbul:codecov": "istanbul cover _mocha -- -R spec test/e2e/**/*.spec.js && codecov --token=6e33f9e7-a9be-42c0-a996-03834652a73c",
         "reports": "rm -rf reports && yarn eslint:html && yarn mocha:html && yarn istanbul:html",
         "istanbul:html": "rm -rf reports/coverage && istanbul cover _mocha -- --opts -R spec test/**/*.spec.js",
         "mocha:html": "rm -rf reports/mocha && mocha --reporter mochawesome --reporter-options reportDir=reports/mocha,reportFilename=mocha-report,inlineAssets=true  test",

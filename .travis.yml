@@ -32,10 +32,10 @@ matrix:
 
 script: npm run travis:$JOB_PART
 script: npm run build
-script: npm run istanbul:codecov
 
 after_success:
   - echo 'test and build success ~_~'
+  - npm run istanbul:codecov
 
 notifications:
   slack:
