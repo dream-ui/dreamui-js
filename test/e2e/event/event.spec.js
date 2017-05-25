@@ -50,7 +50,7 @@ describe('订阅发布模式: PubSub', function () {
   });
 
   it(`发布 test 事件后，触发 test1 事件，test订阅器不执行(1s内未执行)`, function (done) {
-    const test = false;
+    let test = false;
     pubsub.on('test', (name, ...rest) => {
       test = true;
       done(new Error(`test event should don't be triggered. Triggered event-name is ${name}`));
