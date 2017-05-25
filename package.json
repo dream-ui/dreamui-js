@@ -15,7 +15,9 @@
         "reports": "rm -rf reports && yarn eslint:html && yarn mocha:html && yarn istanbul:html",
         "istanbul:html": "rm -rf reports/coverage && istanbul cover --dir ./reports/coverage _mocha -- --opts -R spec test/**/*.spec.js",
         "mocha:html": "rm -rf reports/mocha && mocha --reporter mochawesome --reporter-options reportDir=reports/mocha,reportFilename=mocha-report,inlineAssets=true  test",
-        "eslint:html": "rm -rf reports/eslint && eslint --format html ./src/* -o ./reports/eslint/index.html"
+        "eslint:html": "rm -rf reports/eslint && eslint --format html ./src/* -o ./reports/eslint/index.html",
+        "appveyor:test": "yarn test",
+        "travis:test": "yarn test"
     },
     "keywords": [
         "QuickStart",
