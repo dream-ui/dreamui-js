@@ -4,12 +4,14 @@ const expect = require('chai').expect;
 
 let pubsub = null;
 
+/** @test {PubSub} */
 describe('订阅发布模式: PubSub', function () {
 
   beforeEach(() => {
     pubsub = new PubSub();
   });
 
+  /** @test {PubSub#emit} */
   it(`发布 test 事件后，触发 test 事件订阅器，并且参数为 'a'`, function (done) {
     pubsub.on('test', (name, ...rest) => {
       if (name === 'test') {
@@ -25,6 +27,7 @@ describe('订阅发布模式: PubSub', function () {
     pubsub.emit('test', 'a');
   });
 
+  /** @test {PubSub#on} */
   it(`发布 test 事件后，触发 两次test 事件,参数分为为 'a'、'b'，订阅器执行两次`, function (done) {
     let a = false, b = false;
     function ensureDone () {

@@ -1,0 +1,16 @@
+{
+  "title": "微易AppBridge",
+  "source": "./src/event/",
+  "destination": "./doc",
+  "test": {
+    "type": "mocha",
+    "source": "./test/e2e/event/",
+    "includes": ["\\.(spec|test)\\.js$"]
+  },
+  "includes": ["\\.(js|es6)$"],
+  "excludes": ["\\.config\\.(js|es6)$"],
+  "package": "./package.json",
+  "coverage": true,
+  "lint": true,
+  "includeSource": true
+}

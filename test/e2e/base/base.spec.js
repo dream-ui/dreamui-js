@@ -6,7 +6,9 @@ const expect = require('chai').expect;
 //   console.log('      ----- global beforeEach -----');
 // });
 
+/** @test {Base} */
 describe('base.js', function () {
+  /** @test {Base#compareVersion} */
   describe('版本号比较: compareVersion', function () {
     // before('分配资源: ', function () {
     //   console.log('      ----- before -----');
@@ -58,6 +60,7 @@ describe('base.js', function () {
     });
   });
 
+  /** @test {Base#toThousandBit} */
   describe('千分位转换: toThousandBit', function () {
     it('数字:1234567890 应该转换为 1,234,567,890', function () {
       expect(toThousandBit(1234567890)).to.be.equal('1,234,567,890');

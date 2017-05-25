@@ -1,7 +1,22 @@
+/**
+ * @author borenXue
+ * @homesite http://www.xueboren.com
+ * @email boren.xue@outlook.com
+ * @date 2017-02-28 02:55:49
+ * @desc JS 发布订阅模式的实现: PubSub
+*/
+
 const types = require('./../types/types')
 
 /**
  * JS 发布订阅模式的实现
+ *
+ * @example
+ * const pubsub = new PubSub()
+ * pubsub.on('test', (name, ...rest) => {
+ *  // do your things.
+ * })
+ * pubsub.emit('test', 1, 2)
  */
 class PubSub {
 

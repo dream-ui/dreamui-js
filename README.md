@@ -1,4 +1,4 @@
-
+[![codecov](https://codecov.io/gh/borenXue/toots_js/branch/develop/graph/badge.svg)](https://codecov.io/gh/borenXue/toots_js)
 [![dependencies Status](https://david-dm.org/borenxue/toots_js/status.svg)](https://david-dm.org/borenxue/toots_js)
 [![node version](https://img.shields.io/travis/borenXue/toots_js/master.svg)](https://travis-ci.org/borenXue/toots_js)
 [![node version](https://ci.appveyor.com/api/projects/status/github/borenXue/toots_js?svg=true)](https://ci.appveyor.com/project/borenXue/toots_js/branch/master)

@@ -9,6 +9,7 @@
     "scripts": {
         "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
         "build": "yarn test && export NODE_ENV=production && webpack --config webpack.conf.js",
+        "esdoc": "esdoc -c .esdoc.json",
         "test": "yarn eslint && yarn mocha",
         "mocha": "mocha test",
         "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
@@ -40,6 +41,7 @@
         "babel-preset-stage-0": "^6.24.1",
         "chai": "^3.5.0",
         "codecov": "^2.2.0",
+        "esdoc": "^0.5.2",
         "eslint": "^3.16.1",
         "eslint-config-mocha": "^0.0.0",
         "eslint-config-standard": "^6.2.1",
