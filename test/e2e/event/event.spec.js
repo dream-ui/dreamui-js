@@ -140,7 +140,7 @@ describe('订阅发布模式: PubSub', function () {
   /** @test {PubSub} */
   describe('综合测试1: on emit', function () {
     it(`订阅 test 事件 --> 发布 test1 事件，test订阅事件1s内不执行`, function (done) {
-      const test = false;
+      let test = false;
       pubsub.on('test', (name, ...rest) => {
         test = true;
         done(new Error(`test event should don't be triggered. Triggered event-name is ${name}`));
