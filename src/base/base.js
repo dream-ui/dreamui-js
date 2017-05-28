@@ -4,7 +4,7 @@
  * @param {String} versionA 版本号A
  * @param {String} versionB 版本号B
  */
-const compareVersion = (versionA, versionB) => {
+export const compareVersion = (versionA, versionB) => {
   if (!versionA || !versionB) {
     window.console.warn('[compareVersion]', '[params:]', '参数不合法')
     return
@@ -24,12 +24,7 @@ const compareVersion = (versionA, versionB) => {
 }
 
 // TODO: 金额千分位转换
-const toThousandBit = (amount) => {
+export const toThousandBit = (amount) => {
   const reg = /(\d)(?=(\d{3})+(?!\d))/g
   return String(amount).replace(reg, '$1,')
-}
-
-module.exports = {
-  compareVersion,
-  toThousandBit
 }

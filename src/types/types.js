@@ -1,25 +1,55 @@
-
-const isFunction = (func) => {
+/**
+ * 判断是否是函数
+ * @param {*} func - 要检测的值
+ * @return {Boolean} result
+ */
+export const isFunction = (func) => {
   return typeof func === 'function'
 }
 
-const isBlankString = (str) => {
+/**
+ * 判断是否是空字符串
+ * @param {*} str - 要检测的值
+ * @return {Boolean} result
+ */
+export const isBlankString = (str) => {
   return typeof str === 'string' && str.trim() === ''
 }
 
-const isTrue = (boo) => {
+/**
+ * 判断是否是 true
+ * @param {*} boo - 要检测的值
+ * @return {Boolean} result
+ */
+export const isTrue = (boo) => {
   return boo === true
 }
 
-const isFalse = (boo) => {
+/**
+ * 判断是否是 false
+ * @param {*} boo - 要检测的值
+ * @return {Boolean} result
+ */
+export const isFalse = (boo) => {
   return boo === false
 }
 
-const isArray = (arr) => {
+/**
+ * 判断是否是数组
+ * @param {*} arr - 要检测的值
+ * @return {Boolean} result
+ */
+export const isArray = (arr) => {
   return typeof arr === 'object' && arr instanceof Array
 }
 
-const arrayEqual = (arr1, arr2) => {
+/**
+ * 判断两个数组的内容是否相同
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @return {Boolean} result
+ */
+export const arrayEqual = (arr1, arr2) => {
   if (isArray(arr1) && isArray(arr2)) {
     if (arr1.length === arr2.length) {
       for (let i = 0; i < arr1.length; i++) {
@@ -37,7 +67,13 @@ const arrayEqual = (arr1, arr2) => {
 // ////////////////// 数组相关方法 //////////////////////
 // ////////////////////////////////////////////////////
 
-const arrayRemoveIndex = (arr, idx) => {
+/**
+ * 依据索引删除数组中的某个元素
+ * @param {Array} arr - 源数组
+ * @param {Number} idx - 要删除的元素索引
+ * @return {Array} 删除指定索引处元素后的新数组
+ */
+export const arrayRemoveIndex = (arr, idx) => {
   if (isArray(arr) && idx >= 0) {
     return arr.slice(0, idx).concat(arr.slice(idx + 1))
   } else {
@@ -45,7 +81,13 @@ const arrayRemoveIndex = (arr, idx) => {
   }
 }
 
-const arrayRemoveObject = (arr, obj) => {
+/**
+ * 删除数组中的某个元素
+ * @param {Array} arr - 源数组
+ * @param {*} obj - 要删除的元素
+ * @return {Array} 删除指定元素后的新数组
+ */
+export const arrayRemoveObject = (arr, obj) => {
   if (!isArray(arr)) {
     return
   }
@@ -63,9 +105,9 @@ const arrayRemoveObject = (arr, obj) => {
  *  若 arry1 无改动, 则直接返回 arry1
  * @param {array} arry1
  * @param {array} arry2
- * @return 返回一个全新的数组
+ * @return {array} - result 返回一个全新的数组
  */
-const arrayRemoveRepeat = (arry1, arry2) => {
+export const arrayRemoveRepeat = (arry1, arry2) => {
   let oldArray = arry1
   if (isArray(oldArray) && isArray(arry2)) {
     for (const item of arry2) {
@@ -75,14 +117,14 @@ const arrayRemoveRepeat = (arry1, arry2) => {
   return oldArray
 }
 
-module.exports = {
-  isFunction,
-  isBlankString,
-  isTrue,
-  isFalse,
-  isArray,
-  arrayEqual,
-  arrayRemoveIndex,
-  arrayRemoveObject,
-  arrayRemoveRepeat
-}
+// module.exports = {
+//   isFunction,
+//   isBlankString,
+//   isTrue,
+//   isFalse,
+//   isArray,
+//   arrayEqual,
+//   arrayRemoveIndex,
+//   arrayRemoveObject,
+//   arrayRemoveRepeat
+// }

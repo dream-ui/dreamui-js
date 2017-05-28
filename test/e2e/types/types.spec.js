@@ -11,6 +11,7 @@ const {
 } = require('./../../../src/types/types');
 const expect = require('chai').expect;
 
+/** @test {types} */
 describe('types: 数据类型相关函数', function () {
 
   var iInt = 2,
@@ -47,6 +48,7 @@ describe('types: 数据类型相关函数', function () {
       rArray12UniqResult = [2, 3, 5, 6],
       rArray12IntersectionResult = [1, 3];
 
+  /** @test {isFunction} */
   describe('isFunction', function () {
     it('普通函数是函数', function () {
       expect(isFunction(iFunction)).to.be.equal(true);

@@ -1,6 +1,6 @@
 {
-  "title": "微易AppBridge",
-  "source": "./src/event/",
+  "title": "TOOLS_JS",
+  "source": "./src",
   "destination": "./doc",
   "test": {
     "type": "mocha",
@@ -12,5 +12,17 @@
   "package": "./package.json",
   "coverage": true,
   "lint": true,
-  "includeSource": true
+  "includeSource": true,
+  "access": ["public", "protected", "private"],
+  "index": "./README.md",
+  "plugins": [
+    {
+      "name": "esdoc-importpath-plugin",
+      "option": {
+        "replaces": [
+          {"from": "^src/", "to": "out/src/"}
+        ]
+      }
+    }
+  ]
 }
