@@ -1,6 +1,5 @@
 --compilers js:babel-register
 --require babel-polyfill
----reporter tap
 --recursive
 --growl
 --check-leaks

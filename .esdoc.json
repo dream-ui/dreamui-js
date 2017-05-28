@@ -1,7 +1,7 @@
 {
   "title": "TOOLS_JS",
   "source": "./src",
-  "destination": "./doc",
+  "destination": "./reports/esdoc",
   "test": {
     "type": "mocha",
     "source": "./test/e2e/event/",
