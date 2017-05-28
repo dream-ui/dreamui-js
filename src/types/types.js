@@ -1,3 +1,6 @@
+import trim from './../utils/trim'
+import { propertyScanner } from './../utils/utils'
+
 /**
  * 判断是否是函数
  * @param {*} func - 要检测的值
@@ -12,8 +15,12 @@ export const isFunction = (func) => {
  * @param {*} str - 要检测的值
  * @return {Boolean} result
  */
-export const isBlankString = (str) => {
-  return typeof str === 'string' && str.trim() === ''
+export const isEmptyString = (str) => {
+  return typeof str === 'string' && trim(str) === ''
+}
+
+export const isNonEmptyString = (str) => {
+  return typeof str === 'string' && trim(str) !== ''
 }
 
 /**
@@ -43,6 +50,36 @@ export const isArray = (arr) => {
   return typeof arr === 'object' && arr instanceof Array
 }
 
+// ////////////////////////////////////////////////////
+// ////////////////// 对象相关方法 ////////////////////
+// ////////////////////////////////////////////////////
+
+export const objectMerge = (...rest) => {
+  const originObj = {}
+  for (const item of rest) {
+    propertyScanner(item, (key, value) => {
+      originObj[key] = value
+    })
+  }
+  return originObj
+}
+
+// ////////////////////////////////////////////////////
+// ////////////////// 字符串相关方法 ////////////////////
+// ////////////////////////////////////////////////////
+
+export const stringSplit = (str, ...rest) => {
+  // TODO: rest 全部为分ge符，并按顺序返回
+}
+
+// ////////////////////////////////////////////////////
+// ////////////////// 数组相关方法 //////////////////////
+// ////////////////////////////////////////////////////
+
+export const isNonEmptyArray = (arr) => {
+  return typeof arr === 'object' && arr instanceof Array && arr.length > 0
+}
+
 /**
  * 判断两个数组的内容是否相同
  * @param {Array} arr1
@@ -63,9 +100,17 @@ export const arrayEqual = (arr1, arr2) => {
   return false
 }
 
-// ////////////////////////////////////////////////////
-// ////////////////// 数组相关方法 //////////////////////
-// ////////////////////////////////////////////////////
+export const arrayContains = (arr, obj) => {
+  if (isNonEmptyArray(arr)) {
+    if (isFunction(arr.contains)) {
+      return arr.contains(obj)
+    }
+    for (const item of arr) {
+      if (item === obj) return true
+    }
+  }
+  return false
+}
 
 /**
  * 依据索引删除数组中的某个元素
