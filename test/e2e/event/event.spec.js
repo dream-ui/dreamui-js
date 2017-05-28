@@ -8,7 +8,8 @@ let pubsub = null;
 describe('订阅发布模式: PubSub', function () {
 
   beforeEach(() => {
-    pubsub = new PubSub();
+    pubsub = PubSub.getInstance(true);
+    // pubsub = new PubSub();
   });
 
   /** @test {PubSub#emit} */

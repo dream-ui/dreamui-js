@@ -41,22 +41,6 @@ class PubSub {
    * 生成 PubSub 实例(单例模式)
    */
   constructor () {
-    return PubSub.getInstance()
-  }
-
-  /**
-   * 获取 PubSub 实例(单例模式)
-   * @return {PubSub} PubSub 实例
-   */
-  static getInstance () {
-    if (this.instanceCache) {
-      return this.instanceCache
-    }
-    /**
-     * 事件发布订阅器
-     * @type {PubSub}
-     */
-    this.instanceCache = this
     /**
      * 事件数组, 字符串数组1
      * @type {Array<String>}
@@ -69,7 +53,22 @@ class PubSub {
      * @property {Array<Function>} eventNameB - 主题 eventNameB 订阅的函数列表
      */
     this.pubsub = {} // { 'event-name': [func1, func2] }
-    return this.instanceCache
+  }
+
+  /**
+   * 获取 PubSub 实例(单例模式)
+   * @return {PubSub} PubSub 实例
+   */
+  static getInstance (forceNew) {
+    if (PubSub.instanceCache && !forceNew) {
+      return PubSub.instanceCache
+    }
+    /**
+     * 事件发布订阅器
+     * @type {PubSub}
+     */
+    PubSub.instanceCache = new PubSub()
+    return PubSub.instanceCache
   }
 
   /**
@@ -132,7 +131,7 @@ class PubSub {
    * @param {function | Array<function>} func
    */
   unOn (topic, func) {
-    if (!types.isBlankString(topic)) {
+    if (types.isBlankString(topic)) {
       return
     }
     if (types.isArray(this.pubsub[topic])) {
@@ -146,5 +145,7 @@ class PubSub {
   }
 
 }
+PubSub.instanceCache = null
 
 export default PubSub
+module.exports = PubSub
