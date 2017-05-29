@@ -4,7 +4,8 @@ import {
 } from './../types/types.js'
 
 import {
-  ParameterError
+  ParameterError,
+  ParameterNonEmptyStringError
 } from './../exceptions/OtherErrors.js'
 
 const log = (...rest) => {
@@ -42,6 +43,7 @@ const camelToPascal = (str) => {
   throw new ParameterError('Parameter str must be string and not empty.')
 }
 
+// isMobile、IsMobile --> is-mobile
 const camelPascalToHyphe = (str) => {
   if (isNonEmptyString(str)) {
     if (str.search(/[^a-zA-Z]/) !== -1) {
@@ -68,10 +70,28 @@ const camelPascalToHyphe = (str) => {
   throw new ParameterError('Parameter str must be string and not empty.')
 }
 
+// is-mobile --> IsMobile
+
+const hypheToPascal = (str) => {
+  return hypheToCamel(str).replace(/^([a-z])/g, function (value) { return value.toUpperCase() })
+}
+
+// is-mobile --> isMobile
+const hypheToCamel = (str) => {
+  if (isNonEmptyString(str)) {
+    return str.replace(/-[a-zA-Z0-9]/g, (old) => {
+      return old.replace(/^-/, '').toUpperCase()
+    })
+  }
+  throw new ParameterNonEmptyStringError('Parameter str must be non-empty string.')
+}
+
 module.exports = {
   log,
   propertyScanner,
   pascalToCamel,
   camelToPascal,
-  camelPascalToHyphe
+  camelPascalToHyphe,
+  hypheToCamel,
+  hypheToPascal
 }

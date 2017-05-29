@@ -8,3 +8,8 @@
 # tools_js
 
 > JS 常用工具函数库
+
+[] DataFormatter
+[] CommonRegex
+[] dom: BindEvent
+[] Test : e2e
