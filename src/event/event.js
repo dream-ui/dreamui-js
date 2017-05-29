@@ -85,7 +85,7 @@ class PubSub {
    * @emits {MyTopic1} 发布 主题/事件 MyTopic1
    */
   emit (topic, ...rest) {
-    if (types.isBlankString(topic)) {
+    if (types.isEmptyString(topic)) {
       return
     }
     if (!this.topics[topic]) {
@@ -112,7 +112,7 @@ class PubSub {
    * @throws {TopicEmptyError} throw TopicEmptyError when topic is empty or null.
    */
   on (topic, func) {
-    if (types.isBlankString(topic)) {
+    if (types.isEmptyString(topic)) {
       throw new TopicEmptyError('')
     }
     if (!types.isArray(this.pubsub[topic])) {
@@ -131,7 +131,7 @@ class PubSub {
    * @param {function | Array<function>} func
    */
   unOn (topic, func) {
-    if (types.isBlankString(topic)) {
+    if (types.isEmptyString(topic)) {
       return
     }
     if (types.isArray(this.pubsub[topic])) {

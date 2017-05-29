@@ -1,6 +1,6 @@
 const {
   isFunction,
-  isBlankString,
+  isEmptyString,
   isTrue,
   isFalse,
   isArray,
@@ -64,21 +64,21 @@ describe('types: 数据类型相关函数', function () {
     });
   });
 
-  describe('isBlankString', function () {
+  describe('isEmptyString', function () {
     it(`'${iEmptyString}' 是空字符串 `, function () {
-      expect(isBlankString(iEmptyString)).to.be.equal(true);
+      expect(isEmptyString(iEmptyString)).to.be.equal(true);
     });
     it(`'${iBlankString}' 是空字符串 `, function () {
-      expect(isBlankString(iBlankString)).to.be.equal(true);
+      expect(isEmptyString(iBlankString)).to.be.equal(true);
     });
     it('null 不是空字符串', function () {
-      expect(isBlankString(iNull)).to.be.equal(false);
+      expect(isEmptyString(iNull)).to.be.equal(false);
     });
     it('undefined 不是空字符串', function () {
-      expect(isBlankString(iUndefined)).to.be.equal(false);
+      expect(isEmptyString(iUndefined)).to.be.equal(false);
     });
     it(`'${iString}' 不是空字符串 `, function () {
-      expect(isBlankString(iString)).to.be.equal(false);
+      expect(isEmptyString(iString)).to.be.equal(false);
     });
   });
 
