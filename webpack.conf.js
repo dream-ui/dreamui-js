@@ -1,14 +1,24 @@
 const path = require('path')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const isPro = process.env.NODE_ENV === 'production'
 
-const plugins = []
+const plugins = [
+  new HtmlWebpackPlugin({
+    filename: 'auto_test.html',
+    template: 'test/html/auto_test.html',
+    inject: true,
+    chunks: [ 'auto_test' ]
+  })
+]
+
 if (isPro) {
   plugins.push(new UglifyJSPlugin())
 } else {
   plugins.push(new webpack.HotModuleReplacementPlugin())
+  plugins.push(new webpack.NoEmitOnErrorsPlugin())
 }
 plugins.push(new webpack.LoaderOptionsPlugin({
   eslint: {
@@ -19,7 +29,10 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 }))
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: {
+    'tools_js': path.resolve(__dirname, './src/index.js'),
+    'auto_test': path.resolve(__dirname, './test/html/auto_test.js')
+  },
   output: {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '',
