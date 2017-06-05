@@ -1,13 +1,14 @@
 
 import {
   isNonEmptyString,
-  arrayContains
-} from './../base/base.js'
+  arrayLikeContains
+} from './../types/types.js'
 
 import {
-  trim,
   ClassNameError
 } from './DomExceptions'
+
+import trim from './../utils/trim.js'
 
 export const hasClass = (ele, cls) => {
   if (!ele || !(ele instanceof HTMLElement) || !isNonEmptyString(cls)) {
@@ -17,7 +18,7 @@ export const hasClass = (ele, cls) => {
     throw new ClassNameError('The class string should not contain blank.')
   }
   if (ele.classList) {
-    return arrayContains(ele.classList, trim(cls))
+    return arrayLikeContains(ele.classList, trim(cls))
   } else {
     return ele.className.indexOf(trim(cls)) !== -1
   }
@@ -28,7 +29,7 @@ export const addClass = (ele, cls) => {
     return ele
   }
   if (!hasClass(ele, cls)) {
-    ele.setAttribute(`${ele.getAttribute('class')} ${cls}`)
+    ele.setAttribute('class', `${ele.getAttribute('class')} ${cls}`)
   }
   return ele
 }

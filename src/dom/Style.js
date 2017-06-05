@@ -14,7 +14,7 @@ import {
   hypheToCamel
 } from './../utils/utils.js'
 
-const ieVersion = Number(document.documentMode)
+const ieVersion = Number(window.document.documentMode)
 
 const parametersAssets = (ele, styleName) => {
   if (!(ele instanceof HTMLElement)) {

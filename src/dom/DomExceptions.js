@@ -1,12 +1,10 @@
 
 import {
   CommonError
-} from './../exceptions/EventErrors.js'
+} from './../base/CommonError.js'
 
 export class ClassNameError extends CommonError {
-
   constructor (message) {
     super('ClassNameError', message)
   }
-
 }

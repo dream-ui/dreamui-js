@@ -8,11 +8,11 @@ import {
   ParameterNonEmptyStringError
 } from './../exceptions/OtherErrors.js'
 
-const log = (...rest) => {
+export const log = (...rest) => {
   console.log(...rest)
 }
 
-const propertyScanner = (obj, callback) => {
+export const propertyScanner = (obj, callback) => {
   if (!isFunction(obj) && typeof obj !== 'object') {
     throw new ParameterError('Parameter obj must be a Object Or Function.')
   }
@@ -28,7 +28,7 @@ const propertyScanner = (obj, callback) => {
 }
 
 // IsMobile --> isMobile
-const pascalToCamel = (str) => {
+export const pascalToCamel = (str) => {
   if (isNonEmptyString(str)) {
     return str.substring(0, 1).toUpperCase() + str.substring(1)
   }
@@ -36,7 +36,7 @@ const pascalToCamel = (str) => {
 }
 
 // isMobile --> IsMobile
-const camelToPascal = (str) => {
+export const camelToPascal = (str) => {
   if (isNonEmptyString(str)) {
     return str.substring(0, 1).toLowerCase() + str.substring(1)
   }
@@ -44,14 +44,17 @@ const camelToPascal = (str) => {
 }
 
 // isMobile、IsMobile --> is-mobile
-const camelPascalToHyphe = (str) => {
+export const camelPascalToHyphe = (str) => {
   if (isNonEmptyString(str)) {
-    if (str.search(/[^a-zA-Z]/) !== -1) {
+    if (new RegExp('^[a-z]+(-[a-z]+)*[\\-]?$').test(str)) {
+      return str
+    }
+    if (str.search(/[^a-zA-Z0-9]/) !== -1) { // TODO: 顺序控制
       throw new ParameterError('Parameter str must make up of letters.')
     }
     let result = ''
     let upperStr = ''
-    const matchs = str.match(new RegExp('([A-Z][a-z]*|[A-Z]*)', 'g'))
+    const matchs = str.match(new RegExp('([A-Za-z][a-z0-9]*|[A-Za-z]*)', 'g'))
     for (const item of matchs) {
       if (isNonEmptyString(item)) {
         if (item.length === 1) {
@@ -65,33 +68,26 @@ const camelPascalToHyphe = (str) => {
         }
       }
     }
+    if (isNonEmptyString(upperStr)) {
+      result += `${upperStr.toLowerCase()}-`
+      upperStr = ''
+    }
     return result.replace(/-$/g, '')
   }
   throw new ParameterError('Parameter str must be string and not empty.')
 }
 
 // is-mobile --> IsMobile
-
-const hypheToPascal = (str) => {
+export const hypheToPascal = (str) => {
   return hypheToCamel(str).replace(/^([a-z])/g, function (value) { return value.toUpperCase() })
 }
 
 // is-mobile --> isMobile
-const hypheToCamel = (str) => {
+export const hypheToCamel = (str) => {
   if (isNonEmptyString(str)) {
     return str.replace(/-[a-zA-Z0-9]/g, (old) => {
       return old.replace(/^-/, '').toUpperCase()
     })
   }
   throw new ParameterNonEmptyStringError('Parameter str must be non-empty string.')
-}
-
-module.exports = {
-  log,
-  propertyScanner,
-  pascalToCamel,
-  camelToPascal,
-  camelPascalToHyphe,
-  hypheToCamel,
-  hypheToPascal
 }

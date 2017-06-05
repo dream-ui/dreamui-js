@@ -36,7 +36,6 @@ const { TopicEmptyError } = require('./../exceptions/EventErrors')
  *
  */
 class PubSub {
-
   /**
    * 生成 PubSub 实例(单例模式)
    */
@@ -143,8 +142,8 @@ class PubSub {
       }
     }
   }
-
 }
+
 PubSub.instanceCache = null
 
 export default PubSub

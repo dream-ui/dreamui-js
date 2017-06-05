@@ -93,7 +93,7 @@ export const strToConfig = (str) => {
  * @param {*} refs
  */
 export const createDom = (config, refs) => {
-  if (typeof config !== 'object' || !isFunction(config) || typeof config !== 'string') {
+  if (typeof config !== 'object' && !isFunction(config) && typeof config !== 'string') {
     throw new ParameterError('Type of Parameter config must be String or Function or Object.')
   }
   if (isEmptyString(config)) {
@@ -116,12 +116,14 @@ export const createDom = (config, refs) => {
 
   const dom = document.createElement(cfg.tag)
   propertyScanner(cfg, (prop, value, obj) => {
-    if (prop === 'tag' || prop === 'childs') {
+    if (prop === 'tag') {
       return
     }
     // TODO: content 、childs 顺序
     if (prop === 'content') {
       isNonEmptyString(value) && dom.appendChild(document.createTextNode(value))
+    } else if (prop === 'id') {
+      isNonEmptyString(value) && dom.setAttribute('id', value)
     } else if (prop === 'childs') {
       const childs = value ? isArray(value) ? value : [ value ] : []
       for (const child of childs) {
@@ -134,7 +136,10 @@ export const createDom = (config, refs) => {
     } else if (prop === 'attrs') {
       typeof value === 'object' && propertyScanner(value, (attr, attrValue) => {
         if (attr === 'class') {
-          isNonEmptyString(attrValue) ? dom.className = (dom.className || '').trim() + ' ' + attrValue.trim() : true
+          if (isNonEmptyString(attrValue)) {
+            dom.className = (dom.className || ' ').trim() + ' ' + attrValue.trim() // eslint-disable-line no-unused-expressions
+            dom.className = dom.className.trim()
+          }
         } else {
           isNonEmptyString(attr) && dom.setAttribute(`${camelPascalToHyphe(attr)}`, attrValue)
         }

@@ -8,7 +8,6 @@
  *
  */
 export class TopicEmptyError extends Error {
-
   /**
    * @param {string} message - 异常的详情描述
    */
@@ -16,5 +15,4 @@ export class TopicEmptyError extends Error {
     super('TopicEmptyError', message)
     return this
   }
-
 }

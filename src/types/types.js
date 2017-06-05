@@ -112,6 +112,18 @@ export const arrayContains = (arr, obj) => {
   return false
 }
 
+export const arrayLikeContains = (arr, obj) => {
+  if (typeof arr === 'object' && arr.length > 0) {
+    if (isFunction(arr.contains)) {
+      return arr.contains(obj)
+    }
+    for (const item of arr) {
+      if (item === obj) return true
+    }
+  }
+  return false
+}
+
 /**
  * 依据索引删除数组中的某个元素
  * @param {Array} arr - 源数组
