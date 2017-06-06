@@ -4,7 +4,7 @@
   "destination": "./reports/esdoc",
   "test": {
     "type": "mocha",
-    "source": "./test/e2e/event/",
+    "source": "./test/e2e/nightwatch",
     "includes": ["\\.(spec|test)\\.js$"]
   },
   "includes": ["\\.(js|es6)$"],

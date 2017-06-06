@@ -8,7 +8,7 @@ const isPro = process.env.NODE_ENV === 'production'
 const plugins = [
   new HtmlWebpackPlugin({
     filename: 'auto_test.html',
-    template: 'test/html/auto_test.html',
+    template: 'test/e2e/html/auto_test.html',
     inject: true,
     chunks: [ 'auto_test' ]
   })
@@ -31,7 +31,7 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 module.exports = {
   entry: {
     'tools_js': path.resolve(__dirname, './src/index.js'),
-    'auto_test': path.resolve(__dirname, './test/html/auto_test.js')
+    'auto_test': path.resolve(__dirname, './test/e2e/html/auto_test.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),

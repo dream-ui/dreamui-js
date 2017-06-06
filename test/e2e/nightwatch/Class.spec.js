@@ -1,7 +1,10 @@
+const path = require('path');
+const filename = 'file://' + path.resolve('.', './dist/auto_test.html');
+
 module.exports = {
   'Class.js': function (browser) {
     browser
-    .url('file:///Users/xueboren/XbrOpenSources/tools_js/dist/auto_test.html')
+    .url(filename)
     .waitForElementVisible('body', 10000, false, function() {
       browser.assert.elementPresent("div#block-class-test.block-class-test");
       // browser.elementIdElement('#block-class-test', 'block-class-test', 'body', function (ele) {

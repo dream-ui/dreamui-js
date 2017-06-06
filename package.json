@@ -8,17 +8,21 @@
   "license": "MIT",
   "scripts": {
     "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
-    "build": "rm -rf dist && yarn test && export NODE_ENV=production && webpack --config webpack.conf.js",
-    "test": "yarn eslint && yarn mocha",
-    "test:e2e": "yarn build && node_modules/nightwatch/bin/nightwatch --config build/nightwatch.config.js --reporter build/nightwatch-html-report.js --env chrome --test test/nightwatch",
-    "mocha": "mocha test/e2e",
+    "build": "rm -rf dist && yarn test:unit && export NODE_ENV=production && webpack --config webpack.conf.js",
+
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:unit": "yarn eslint && yarn mocha",
+    "test:e2e": "yarn build && node_modules/nightwatch/bin/nightwatch --config build/nightwatch.config.js --reporter build/nightwatch-html-report.js --env chrome --test test/e2e/nightwatch",
+    "mocha": "mocha test/unit",
     "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
-    "istanbul:codecov": "istanbul cover _mocha -- -R test/e2e/**/*.spec.js && codecov",
+
     "reports": "rm -rf reports && yarn eslint:html && yarn mocha:html && yarn istanbul:html && yarn esdoc:html",
     "esdoc:html": "esdoc -c .esdoc.json",
-    "istanbul:html": "babel-node node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- --opts ./test/mocha.opts test/",
-    "mocha:html": "mocha --reporter mochawesome --reporter-options reportDir=reports/mocha,reportFilename=mocha-report,inlineAssets=true  test",
+    "istanbul:html": "babel-node node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- --opts ./test/mocha.opts test/unit",
+    "mocha:html": "mocha --reporter mochawesome --reporter-options reportDir=reports/mocha,reportFilename=mocha-report,inlineAssets=true  test/unit",
     "eslint:html": "eslint --format html ./src/* -o ./reports/eslint/index.html",
+
+    "istanbul:codecov": "istanbul cover _mocha -- -R test/unit/**/*.spec.js && codecov",
     "appveyor:test": "yarn test",
     "travis:test": "yarn test"
   },

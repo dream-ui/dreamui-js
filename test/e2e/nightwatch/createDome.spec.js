@@ -1,7 +1,10 @@
+const path = require('path');
+const filename = 'file://' + path.resolve('.', './dist/auto_test.html');
+
 module.exports = {
   'createDom': function (browser) {
     browser
-    .url('file:///Users/xueboren/XbrOpenSources/tools_js/dist/auto_test.html')
+    .url(filename)
     .waitForElementVisible('body', 10000, false, function() {
       this
         .useXpath()
