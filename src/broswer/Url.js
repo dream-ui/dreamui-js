@@ -2,7 +2,7 @@
  * 获取参数 key 的值
  * @param {string} url
  * @param {string} key
- * @return {string || int} 该 key 对应的值
+ * @return {string | int} 该 key 对应的值
  */
 export const getParam = (url, key) => {
 

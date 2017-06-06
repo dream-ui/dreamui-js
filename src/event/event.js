@@ -81,6 +81,7 @@ class PubSub {
   /**
    * 发布主题 emit
    * @param {string} topic - 要发布的主题
+   * @param {...string} rest - 回调时的参数
    * @emits {MyTopic1} 发布 主题/事件 MyTopic1
    */
   emit (topic, ...rest) {
