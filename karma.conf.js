@@ -12,6 +12,7 @@ module.exports = function (config) {
     webpack: {
       // resolve: { root: __dirname + '/src' },
       module: {
+        entry: 'index.html',
         loaders: [
           {
             test: /\.js$/,
