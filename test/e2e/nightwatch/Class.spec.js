@@ -18,8 +18,7 @@ module.exports = {
         hasClass = window.classs.hasClass(document.querySelector("#block-class-test"), 'abcdefg');
         return true;
       }, [], function(result) {
-        browser.expect.element('#block-class-test').to.have.attribute('class', 'Expected element <#block-class-test> to have attribute "class" contain: "abcdefg" after executed addClass(ele, "abcdefg") mothod.')
-          .contain('abcdefg');
+        browser.expect.element('#block-class-test').to.have.attribute('class', 'Expected element <#block-class-test> to have attribute "class" contain: "abcdefg" after executed addClass(ele, "abcdefg") mothod.').contain('abcdefg');
         browser.expect.element('#block-class-test').to.have.attribute('class', 'Expected element <#block-class-test> to have attribute "class" contain: "abcdefg" for executed hasClass(ele, "abcdefg") mothod.')
           .contain('abcdefg').to.equal(hasClass);
 

@@ -1,13 +1,32 @@
 const assert = require('power-assert');
-const { compareVersion, toThousandBit } = require('./../../../src/base/index');
+const {
+  compareVersion,
+  toThousandBit,
+  isTrue,
+  isFalse,
+  isFunction
+} = require('./../../../src/base/base');
 const expect = require('chai').expect;
-
-// beforeEach(function () {
-//   console.log('      ----- global beforeEach -----');
-// });
 
 /** @test {Base} */
 describe('base.js', function () {
+
+  var iInt = 2,
+      iObject = {
+        func: () => {}
+      },
+      iFunction = function () {},
+      iArrowFunction = () => {},
+      iTrue = true,
+      iFalse = false,
+      iNull = null,
+      iUndefined = undefined,
+      iArray = [1, 2, 3, 4],
+      iEmptyArray = [],
+      iString = 'test-string',
+      iEmptyString = '',
+      iBlankString = ' ';
+
   /** @test {Base#compareVersion} */
   describe('版本号比较: compareVersion', function () {
     // before('分配资源: ', function () {
@@ -47,19 +66,6 @@ describe('base.js', function () {
 
   });
 
-  describe('#TODO1', function() {
-    it('should return -1 when the value is not present');
-  });
-
-  describe('#TODO2', function() {
-    it.skip('should return -1 when the value is not present', function () {
-      this.slow(10000);
-    });
-    it('#动态判断是否被执行', function() {
-      this.skip();
-    });
-  });
-
   /** @test {Base#toThousandBit} */
   describe('千分位转换: toThousandBit', function () {
     it('数字:1234567890 应该转换为 1,234,567,890', function () {
@@ -75,4 +81,51 @@ describe('base.js', function () {
       expect(toThousandBit('12')).to.be.equal('12');
     });
   });
+
+  describe('isTrue', function () {
+    it(`'${iTrue}' 严格等于 true `, function () {
+      expect(isTrue(iTrue)).to.be.equal(true);
+    });
+    it(`'${iFalse}' 不严格等于 true `, function () {
+      expect(isTrue(iFalse)).to.be.equal(false);
+    });
+    it(`'${iNull}' 不严格等于 true `, function () {
+      expect(isTrue(iNull)).to.be.equal(false);
+    });
+    it(`'${iUndefined}' 不严格等于 true `, function () {
+      expect(isTrue(iUndefined)).to.be.equal(false);
+    });
+  });
+
+  describe('isFalse', function () {
+    it(`'${iTrue}' 不严格等于 false `, function () {
+      expect(isFalse(iTrue)).to.be.equal(false);
+    });
+    it(`'${iFalse}' 严格等于 false `, function () {
+      expect(isFalse(iFalse)).to.be.equal(true);
+    });
+    it(`'${iNull}' 不严格等于 false `, function () {
+      expect(isFalse(iNull)).to.be.equal(false);
+    });
+    it(`'${iUndefined}' 不严格等于 false `, function () {
+      expect(isFalse(iUndefined)).to.be.equal(false);
+    });
+  });
+
+  /** @test {isFunction} */
+  describe('isFunction', function () {
+    it('普通函数是函数', function () {
+      expect(isFunction(iFunction)).to.be.equal(true);
+    });
+    it('箭头函数是函数', function () {
+      expect(isFunction(iArrowFunction)).to.be.equal(true);
+    });
+    it('null 不是函数', function () {
+      expect(isFunction(iNull)).to.be.equal(false);
+    });
+    it('数组不是函数', function () {
+      expect(isFunction(iArray)).to.be.equal(false);
+    });
+  });
+
 });

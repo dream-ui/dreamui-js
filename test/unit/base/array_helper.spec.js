@@ -1,18 +1,16 @@
 const {
-  isFunction,
-  isEmptyString,
-  isTrue,
-  isFalse,
   isArray,
   arrayEqual,
+  arrayContains,
+  arrayLikeContains,
   arrayRemoveIndex,
   arrayRemoveObject,
   arrayRemoveRepeat
-} = require('./../../../src/base/index');
+} = require('./../../../src/base/array_helper');
 const expect = require('chai').expect;
 
 /** @test {types} */
-describe('types: 数据类型相关函数', function () {
+describe('数组相关函数', function () {
 
   var iInt = 2,
       iObject = {
@@ -48,70 +46,6 @@ describe('types: 数据类型相关函数', function () {
       rArray12UniqResult = [2, 3, 5, 6],
       rArray12IntersectionResult = [1, 3];
 
-  /** @test {isFunction} */
-  describe('isFunction', function () {
-    it('普通函数是函数', function () {
-      expect(isFunction(iFunction)).to.be.equal(true);
-    });
-    it('箭头函数是函数', function () {
-      expect(isFunction(iArrowFunction)).to.be.equal(true);
-    });
-    it('null 不是函数', function () {
-      expect(isFunction(iNull)).to.be.equal(false);
-    });
-    it('数组不是函数', function () {
-      expect(isFunction(iArray)).to.be.equal(false);
-    });
-  });
-
-  describe('isEmptyString', function () {
-    it(`'${iEmptyString}' 是空字符串 `, function () {
-      expect(isEmptyString(iEmptyString)).to.be.equal(true);
-    });
-    it(`'${iBlankString}' 是空字符串 `, function () {
-      expect(isEmptyString(iBlankString)).to.be.equal(true);
-    });
-    it('null 不是空字符串', function () {
-      expect(isEmptyString(iNull)).to.be.equal(false);
-    });
-    it('undefined 不是空字符串', function () {
-      expect(isEmptyString(iUndefined)).to.be.equal(false);
-    });
-    it(`'${iString}' 不是空字符串 `, function () {
-      expect(isEmptyString(iString)).to.be.equal(false);
-    });
-  });
-
-  describe('isTrue', function () {
-    it(`'${iTrue}' 严格等于 true `, function () {
-      expect(isTrue(iTrue)).to.be.equal(true);
-    });
-    it(`'${iFalse}' 不严格等于 true `, function () {
-      expect(isTrue(iFalse)).to.be.equal(false);
-    });
-    it(`'${iNull}' 不严格等于 true `, function () {
-      expect(isTrue(iNull)).to.be.equal(false);
-    });
-    it(`'${iUndefined}' 不严格等于 true `, function () {
-      expect(isTrue(iUndefined)).to.be.equal(false);
-    });
-  });
-
-  describe('isFalse', function () {
-    it(`'${iTrue}' 不严格等于 false `, function () {
-      expect(isFalse(iTrue)).to.be.equal(false);
-    });
-    it(`'${iFalse}' 严格等于 false `, function () {
-      expect(isFalse(iFalse)).to.be.equal(true);
-    });
-    it(`'${iNull}' 不严格等于 false `, function () {
-      expect(isFalse(iNull)).to.be.equal(false);
-    });
-    it(`'${iUndefined}' 不严格等于 false `, function () {
-      expect(isFalse(iUndefined)).to.be.equal(false);
-    });
-  });
-
   describe('isArray', function () {
     it(`'${iArray}' 是数组`, function () {
       expect(isArray(iArray)).to.be.equal(true);
@@ -144,6 +78,14 @@ describe('types: 数据类型相关函数', function () {
     it(`数组 '[${eArray1}]' 与数组 '[${eArray4}]' 内容不一致`, function () {
       expect(arrayEqual(eArray1, eArray4)).to.be.equal(false);
     });
+  });
+
+  describe('arrayContains', function () {
+    it(`arrayContains`);
+  });
+
+  describe('arrayLikeContains', function () {
+    it(`arrayLikeContains`);
   });
 
   describe('依据索引删除数组中的某一项: arrayRemoveIndex', function () {

@@ -1,13 +1,19 @@
 import {
-  isNonEmptyString,
   isArray,
   isFunction,
   isEmptyString,
   objectMerge,
   propertyScanner,
-  camelPascalToHyphe,
-  ParameterError
+  camelPascalToHyphe
 } from './../../base/index.js'
+
+import {
+  ParameterError
+} from './../../../src/base/exceptions.js'
+
+const isNonEmptyString = (val) => {
+  return typeof val === 'string' && !isEmptyString(val)
+}
 
 /**
  * @typedef {Object} CreateDomConfig

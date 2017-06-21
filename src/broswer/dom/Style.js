@@ -1,5 +1,5 @@
 import {
-  isNonEmptyString,
+  notEmptyString,
   hypheToCamel,
   propertyScanner,
   ParameterError,
@@ -13,7 +13,7 @@ const parametersAssets = (ele, styleName) => {
   if (!(ele instanceof HTMLElement)) {
     throw new ParameterHTMLElementError('Parameter ele must be a HTMLElement instance.')
   }
-  if (!isNonEmptyString(styleName)) {
+  if (!notEmptyString(styleName)) {
     throw new ParameterNonEmptyStringError('Parameter styleName must be a non-empty string.')
   }
 }
@@ -51,9 +51,9 @@ export const setStyle = (ele, styleName, value) => {
   }
   if (typeof styleName === 'object') {
     propertyScanner(styleName, (prop, propValue, obj) => {
-      isNonEmptyString(prop) && setStyle(ele, prop, propValue)
+      notEmptyString(prop) && setStyle(ele, prop, propValue)
     })
-  } else if (isNonEmptyString(styleName)) {
+  } else if (notEmptyString(styleName)) {
     // Tip: styleName: background-color:
     if (styleName === 'opacity' && ieVersion < 9) {
       ele.style.filter = isNaN(value) ? '' : `alpha(opacity=${value * 100})`

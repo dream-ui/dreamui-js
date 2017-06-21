@@ -1,13 +1,14 @@
 
 import {
-  isNonEmptyString,
+  notEmptyString,
   arrayLikeContains,
-  trim,
   ClassNameError
 } from './../../base/index.js'
 
+import trim from './../../base/trim'
+
 export const hasClass = (ele, cls) => {
-  if (!ele || !(ele instanceof HTMLElement) || !isNonEmptyString(cls)) {
+  if (!ele || !(ele instanceof HTMLElement) || !notEmptyString(cls)) {
     return false
   }
   if (trim(cls).indexOf(' ') !== -1) {
@@ -21,7 +22,7 @@ export const hasClass = (ele, cls) => {
 }
 
 export const addClass = (ele, cls) => {
-  if (!ele || !(ele instanceof HTMLElement) || !isNonEmptyString(cls)) {
+  if (!ele || !(ele instanceof HTMLElement) || !notEmptyString(cls)) {
     return ele
   }
   if (!hasClass(ele, cls)) {
@@ -31,13 +32,13 @@ export const addClass = (ele, cls) => {
 }
 
 export const removeClass = (ele, cls) => {
-  if (!ele || !(ele instanceof HTMLElement) || !isNonEmptyString(cls)) {
+  if (!ele || !(ele instanceof HTMLElement) || !notEmptyString(cls)) {
     return
   }
   const classs = cls.split(' ')
   let resultClassName = ele.className
   for (const item of classs) {
-    if (isNonEmptyString(item)) {
+    if (notEmptyString(item)) {
       resultClassName = resultClassName.replace(new RegExp(item, 'g'), '')
     }
   }

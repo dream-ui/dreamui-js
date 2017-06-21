@@ -1,5 +1,5 @@
 // const style = require('./../../src/dom/Style');
-const { createDom } = require('./../../..//src/broswer/dom/Dom');
+const { createDom } = require('./../../../src/broswer/dom/CreateDom');
 // const classs = require('./../../src/dom/Class');
 
 window.createDom = createDom;

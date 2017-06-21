@@ -23,8 +23,8 @@
     "eslint:html": "eslint --format html ./src/* -o ./reports/eslint/index.html",
 
     "istanbul:codecov": "istanbul cover _mocha -- -R test/unit/**/*.spec.js && codecov",
-    "appveyor:test": "yarn test",
-    "travis:test": "yarn test"
+    "appveyor:test": "yarn test:unit",
+    "travis:test": "yarn test:unit"
   },
   "keywords": [
     "QuickStart",

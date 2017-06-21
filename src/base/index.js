@@ -26,7 +26,7 @@ export const trim = require('./trim')
 
 export const {
   isEmptyString,
-  isNonEmptyString,
+  notEmptyString,
   stringSplit,
   pascalToCamel,
   camelToPascal,
