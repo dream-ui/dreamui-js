@@ -1,3 +1,24 @@
+export const log = (...rest) => {
+  console.log(...rest)
+}
+
+/**
+ * 判断是否是 true
+ * @param {*} boo - 要检测的值
+ * @return {Boolean} result
+ */
+export const isTrue = (boo) => {
+  return boo === true
+}
+
+/**
+ * 判断是否是 false
+ * @param {*} boo - 要检测的值
+ * @return {Boolean} result
+ */
+export const isFalse = (boo) => {
+  return boo === false
+}
 
 /**
  * 比较版本号: A > B,则返回 1、  A < B,则返回 -1、 A = B,则返回 0
@@ -27,4 +48,13 @@ export const compareVersion = (versionA, versionB) => {
 export const toThousandBit = (amount) => {
   const reg = /(\d)(?=(\d{3})+(?!\d))/g
   return String(amount).replace(reg, '$1,')
+}
+
+/**
+ * 判断是否是函数
+ * @param {*} func - 要检测的值
+ * @return {Boolean} result
+ */
+export const isFunction = (func) => {
+  return typeof func === 'function'
 }

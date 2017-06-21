@@ -1,9 +1,9 @@
 // const style = require('./../../src/dom/Style');
-const { createDom } = require('./../../..//src/dom/createDom');
+const { createDom } = require('./../../..//src/broswer/dom/Dom');
 // const classs = require('./../../src/dom/Class');
 
 window.createDom = createDom;
-window.classs = require('./../../../src/dom/Class');
+window.classs = require('./../../../src/broswer/dom/Class');
 
 // const ele = createDom('div.c-parent.my-class-name#c-parent{{c-parent}}');
 

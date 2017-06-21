@@ -1,45 +1,8 @@
-import trim from './../utils/trim'
-import { propertyScanner } from './../utils/utils'
+// ////////////////////////////////////////////////////
+// ////////////////// 数组相关方法 //////////////////////
+// ////////////////////////////////////////////////////
 
-/**
- * 判断是否是函数
- * @param {*} func - 要检测的值
- * @return {Boolean} result
- */
-export const isFunction = (func) => {
-  return typeof func === 'function'
-}
-
-/**
- * 判断是否是空字符串
- * @param {*} str - 要检测的值
- * @return {Boolean} result
- */
-export const isEmptyString = (str) => {
-  return typeof str === 'string' && trim(str) === ''
-}
-
-export const isNonEmptyString = (str) => {
-  return typeof str === 'string' && trim(str) !== ''
-}
-
-/**
- * 判断是否是 true
- * @param {*} boo - 要检测的值
- * @return {Boolean} result
- */
-export const isTrue = (boo) => {
-  return boo === true
-}
-
-/**
- * 判断是否是 false
- * @param {*} boo - 要检测的值
- * @return {Boolean} result
- */
-export const isFalse = (boo) => {
-  return boo === false
-}
+const { isFunction } = require('./object_helper')
 
 /**
  * 判断是否是数组
@@ -49,32 +12,6 @@ export const isFalse = (boo) => {
 export const isArray = (arr) => {
   return typeof arr === 'object' && arr instanceof Array
 }
-
-// ////////////////////////////////////////////////////
-// ////////////////// 对象相关方法 ////////////////////
-// ////////////////////////////////////////////////////
-
-export const objectMerge = (...rest) => {
-  const originObj = {}
-  for (const item of rest) {
-    propertyScanner(item, (key, value) => {
-      originObj[key] = value
-    })
-  }
-  return originObj
-}
-
-// ////////////////////////////////////////////////////
-// ////////////////// 字符串相关方法 ////////////////////
-// ////////////////////////////////////////////////////
-
-export const stringSplit = (str, ...rest) => {
-  // TODO: rest 全部为分ge符，并按顺序返回
-}
-
-// ////////////////////////////////////////////////////
-// ////////////////// 数组相关方法 //////////////////////
-// ////////////////////////////////////////////////////
 
 export const isNonEmptyArray = (arr) => {
   return typeof arr === 'object' && arr instanceof Array && arr.length > 0
@@ -173,15 +110,3 @@ export const arrayRemoveRepeat = (arry1, arry2) => {
   }
   return oldArray
 }
-
-// module.exports = {
-//   isFunction,
-//   isBlankString,
-//   isTrue,
-//   isFalse,
-//   isArray,
-//   arrayEqual,
-//   arrayRemoveIndex,
-//   arrayRemoveObject,
-//   arrayRemoveRepeat
-// }

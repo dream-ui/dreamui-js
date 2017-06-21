@@ -6,8 +6,15 @@
  * @desc JS 发布订阅模式的实现: PubSub
 */
 
-const types = require('./../types/types')
-const { TopicEmptyError } = require('./../exceptions/EventErrors')
+const {
+  isEmptyString,
+  isFunction,
+  isArray,
+  arrayRemoveRepeat,
+  arrayRemoveObject
+} = require('./../base/index')
+
+const { TopicEmptyError } = require('./../base/index')
 
 /**
  * JS 发布订阅模式的实现
@@ -85,16 +92,16 @@ class PubSub {
    * @emits {MyTopic1} 发布 主题/事件 MyTopic1
    */
   emit (topic, ...rest) {
-    if (types.isEmptyString(topic)) {
+    if (isEmptyString(topic)) {
       return
     }
     if (!this.topics[topic]) {
       this.topics.push(topic)
     }
-    if (types.isArray(this.pubsub[topic])) {
+    if (isArray(this.pubsub[topic])) {
       const funcList = this.pubsub[topic]
       for (const func of funcList) {
-        if (types.isFunction(func)) {
+        if (isFunction(func)) {
           var params = [topic, ...rest]
           func.apply(null, params)
         }
@@ -112,15 +119,15 @@ class PubSub {
    * @throws {TopicEmptyError} throw TopicEmptyError when topic is empty or null.
    */
   on (topic, func) {
-    if (types.isEmptyString(topic)) {
+    if (isEmptyString(topic)) {
       throw new TopicEmptyError('')
     }
-    if (!types.isArray(this.pubsub[topic])) {
+    if (!isArray(this.pubsub[topic])) {
       this.pubsub[topic] = []
     }
-    if (types.isArray(func)) {
+    if (isArray(func)) {
       this.pubsub[topic] = this.pubsub[topic].concat(func)
-    } else if (types.isFunction(func)) {
+    } else if (isFunction(func)) {
       this.pubsub[topic].push(func)
     }
   }
@@ -131,15 +138,15 @@ class PubSub {
    * @param {function | Array<function>} func
    */
   unOn (topic, func) {
-    if (types.isEmptyString(topic)) {
+    if (isEmptyString(topic)) {
       return
     }
-    if (types.isArray(this.pubsub[topic])) {
+    if (isArray(this.pubsub[topic])) {
       const funcList = this.pubsub[topic]
-      if (types.isArray(func)) {
-        this.pubsub[topic] = types.arrayRemoveRepeat(funcList, func)
-      } else if (types.isFunction(func)) {
-        this.pubsub[topic] = types.arrayRemoveObject(funcList, func)
+      if (isArray(func)) {
+        this.pubsub[topic] = arrayRemoveRepeat(funcList, func)
+      } else if (isFunction(func)) {
+        this.pubsub[topic] = arrayRemoveObject(funcList, func)
       }
     }
   }

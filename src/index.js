@@ -6,14 +6,64 @@
  * @desc tools_js: 工具函数、常用算法 实现
  */
 
-const base = require('./base/base')
-const broswer = require('./broswer/broswer')
-const event = require('./event/event')
-const types = require('./types/types')
+/**
+ * Broswer Module
+ */
+const {
+  isWeChat,
+  isQQ,
+  copyText
+} = require('./broswer/broswer')
+
+const {
+  getParam,
+  hasParam,
+  addParam,
+  addParams,
+  parseUrl
+} = require('./broswer/Url')
+
+const dom = require('./broswer/dom/Dom')
+
+// const broswer = require('./broswer/broswer')
+const PubSub = require('./event/event')
+
+const {
+  compareVersion,
+  toThousandBit,
+  pascalToCamel,
+  camelToPascal,
+  camelPascalToHyphe,
+  hypheToPascal,
+  hypheToCamel
+} = require('./base/index')
 
 module.exports = {
-  base,
-  broswer,
-  event,
-  types
+  broswer: {
+    isWeChat,
+    isQQ,
+    copyText,
+    URL: {
+      getParam,
+      hasParam,
+      addParam,
+      addParams,
+      parseUrl
+    },
+    dom
+  },
+  PubSub,
+  nameStyle: {
+    pascalToCamel,
+    camelToPascal,
+    camelPascalToHyphe,
+    hypheToPascal,
+    hypheToCamel
+  },
+
+  /**
+   * Global Functions
+   */
+  compareVersion,
+  toThousandBit
 }

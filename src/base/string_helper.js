@@ -1,30 +1,25 @@
-import {
-  isFunction,
-  isNonEmptyString
-} from './../types/types.js'
+import trim from './trim.js'
 
 import {
   ParameterError,
   ParameterNonEmptyStringError
-} from './../exceptions/OtherErrors.js'
+} from './exceptions.js'
 
-export const log = (...rest) => {
-  console.log(...rest)
+/**
+ * 判断是否是空字符串
+ * @param {*} str - 要检测的值
+ * @return {Boolean} result
+ */
+export const isEmptyString = (str) => {
+  return typeof str === 'string' && trim(str) === ''
 }
 
-export const propertyScanner = (obj, callback) => {
-  if (!isFunction(obj) && typeof obj !== 'object') {
-    throw new ParameterError('Parameter obj must be a Object Or Function.')
-  }
-  if (!isFunction(callback)) {
-    throw new ParameterError('Parameter callback must be a Function')
-  }
-  for (const prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      callback(prop, obj[prop], obj)
-    }
-    continue
-  }
+export const isNonEmptyString = (str) => {
+  return typeof str === 'string' && trim(str) !== ''
+}
+
+export const stringSplit = (str, ...rest) => {
+  // TODO: rest 全部为分ge符，并按顺序返回
 }
 
 // IsMobile --> isMobile

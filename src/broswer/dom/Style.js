@@ -1,18 +1,11 @@
-
 import {
+  isNonEmptyString,
+  hypheToCamel,
+  propertyScanner,
   ParameterError,
   ParameterHTMLElementError,
   ParameterNonEmptyStringError
-} from './../exceptions/OtherErrors.js'
-
-import {
-  isNonEmptyString
-} from './../types/types.js'
-
-import {
-  propertyScanner,
-  hypheToCamel
-} from './../utils/utils.js'
+} from './../../base/index.js'
 
 const ieVersion = Number(window.document.documentMode)
 

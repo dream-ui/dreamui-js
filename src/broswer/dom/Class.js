@@ -1,14 +1,10 @@
 
 import {
   isNonEmptyString,
-  arrayLikeContains
-} from './../types/types.js'
-
-import {
+  arrayLikeContains,
+  trim,
   ClassNameError
-} from './DomExceptions'
-
-import trim from './../utils/trim.js'
+} from './../../base/index.js'
 
 export const hasClass = (ele, cls) => {
   if (!ele || !(ele instanceof HTMLElement) || !isNonEmptyString(cls)) {

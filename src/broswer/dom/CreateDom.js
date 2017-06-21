@@ -3,17 +3,11 @@ import {
   isArray,
   isFunction,
   isEmptyString,
-  objectMerge
-} from './../types/types.js'
-
-import {
-  ParameterError
-} from './../exceptions/OtherErrors.js'
-
-import {
+  objectMerge,
   propertyScanner,
-  camelPascalToHyphe
-} from './../utils/utils.js'
+  camelPascalToHyphe,
+  ParameterError
+} from './../../base/index.js'
 
 /**
  * @typedef {Object} CreateDomConfig

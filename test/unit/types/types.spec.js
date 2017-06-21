@@ -8,7 +8,7 @@ const {
   arrayRemoveIndex,
   arrayRemoveObject,
   arrayRemoveRepeat
-} = require('./../../../src/types/types');
+} = require('./../../../src/base/index');
 const expect = require('chai').expect;
 
 /** @test {types} */
