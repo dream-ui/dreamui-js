@@ -7,7 +7,7 @@ import {
   ParameterNonEmptyStringError
 } from './../../base/index.js'
 
-const ieVersion = Number(window.document.documentMode)
+const ieVersion = Number(window && window.document ? window.document.documentMode : 10)
 
 const parametersAssets = (ele, styleName) => {
   if (!(ele instanceof HTMLElement)) {
