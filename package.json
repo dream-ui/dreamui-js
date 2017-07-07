@@ -14,7 +14,7 @@
     "test:unit": "yarn eslint && yarn mocha",
     "test:e2e": "yarn build && node_modules/nightwatch/bin/nightwatch --config build/nightwatch.config.js --reporter build/nightwatch-html-report.js --env chrome --test test/e2e/nightwatch",
     "mocha": "mocha test/unit",
-    "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
+    "eslint": "eslint --format node_modules/eslint-friendly-formatter src",
 
     "reports": "rm -rf reports && yarn eslint:html && yarn mocha:html && yarn istanbul:html && yarn esdoc:html",
     "esdoc:html": "esdoc -c .esdoc.json",
