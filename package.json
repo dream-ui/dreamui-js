@@ -1,9 +1,9 @@
 {
-  "name": "quickstart-es6",
+  "name": "dreamui-js",
   "version": "1.0.0",
-  "description": "es6 + webpack 环境快速搭建",
+  "description": "dreamui-js",
   "main": "index.js",
-  "repository": "https://github.com/borenXue/QuickStart-es6.git",
+  "repository": "https://github.com/dream-ui/dreamui-js.git",
   "author": "xueboren <xueboren001@outlook.com>",
   "license": "MIT",
   "scripts": {
@@ -27,11 +27,11 @@
     "travis:test": "yarn test:unit"
   },
   "keywords": [
-    "QuickStart",
+    "dream",
+    "dreamui",
+    "js",
     "es6",
-    "eslint",
-    "yarn",
-    "webpack"
+    "dreamui-js"
   ],
   "devDependencies": {
     "babel": "^6.23.0",
