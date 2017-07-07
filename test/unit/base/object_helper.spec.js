@@ -16,9 +16,9 @@ describe('Object 相关操作函数', function () {
   describe('objectMerge', function () {
     result = objectMerge(oA, oB, oC, oA2);
     it(` 是空字符串 `, function () {
-      expect(result.a).to.be.equal('a2');
-      expect(result.b).to.be.equal('b');
-      expect(result.c).to.be.equal('c');
+      expect(result).to.have.property('a', 'a2');
+      expect(result).to.have.property('b', 'b');
+      expect(result).to.have.property('c', 'c');
     });
   });
 
@@ -31,9 +31,9 @@ describe('Object 相关操作函数', function () {
       obj[prop]++;
     });
     it(` propertyScanner `, function () {
-      expect(oPS.a).to.be.equal(3);
-      expect(oPS.b).to.be.equal(4);
-      expect(oPS.c).to.be.equal(5);
+      expect(oPS).to.have.property('a', 3);
+      expect(oPS).to.have.property('b', 4);
+      expect(oPS).to.have.property('c', 5);
     });
   });
 
