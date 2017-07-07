@@ -1,15 +1,17 @@
-[![codecov](https://codecov.io/gh/borenXue/toots_js/branch/develop/graph/badge.svg)](https://codecov.io/gh/borenXue/toots_js)
-[![dependencies Status](https://david-dm.org/borenxue/toots_js/status.svg)](https://david-dm.org/borenxue/toots_js)
-[![node version](https://img.shields.io/travis/borenXue/toots_js/master.svg)](https://travis-ci.org/borenXue/toots_js)
+[![Circle CI](https://circleci.com/gh/dream-ui/dreamui-js/tree/master.svg?style=svg)](https://circleci.com/gh/dream-ui/dreamui-js/tree/master)
+[![Travis CI](https://img.shields.io/travis/dream-ui/dreamui-js/master.svg)](https://travis-ci.org/dream-ui/dreamui-js)
+[![codecov](https://codecov.io/gh/dream-ui/dreamui-js/branch/master/graph/badge.svg)](https://codecov.io/gh/dream-ui/dreamui-js)
+[![dependencies Status](https://david-dm.org/dream-ui/dreamui-js/status.svg)](https://david-dm.org/dream-ui/dreamui-js)
+[![License](https://img.shields.io/npm/l/dreamui-js.svg)](https://github.com/dream-ui/dreamui-js/blob/master/LICENCE)
+
 [![node version](https://ci.appveyor.com/api/projects/status/github/borenXue/toots_js?svg=true)](https://ci.appveyor.com/project/borenXue/toots_js/branch/master)
-[![CircleCI](https://circleci.com/gh/borenXue/toots_js/tree/master.svg?style=svg)](https://circleci.com/gh/borenXue/toots_js/tree/master)
-[![dependencies Status](https://img.shields.io/npm/l/toots_js.svg)](https://github.com/borenXue/toots_js/blob/master/LICENCE)
 
-# tools_js
 
-> JS 常用工具函数库
+# dreamui-js
 
-[] DataFormatter
-[] CommonRegex
-[] dom: BindEvent
-[] Test : e2e
+> deamui js 工具函数库
+
+- [*] dom: BindEvent
+- [*] Test : e2e
+- [] DataFormatter
+- [] CommonRegex
