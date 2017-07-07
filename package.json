@@ -7,8 +7,8 @@
   "author": "xueboren <xueboren001@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
-    "build": "rm -rf dist && yarn test:unit && export NODE_ENV=production && webpack --config webpack.conf.js",
+    "dev": "cross-env NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config webpack.conf.js",
+    "build": "rm -rf dist && yarn test:unit && cross-env NODE_ENV=production && webpack --config webpack.conf.js",
 
     "test": "yarn test:unit && yarn test:e2e",
     "test:unit": "yarn eslint && yarn mocha",
