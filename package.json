@@ -22,7 +22,7 @@
     "mocha:html": "mocha --reporter mochawesome --reporter-options reportDir=reports/mocha,reportFilename=mocha-report,inlineAssets=true  test/unit",
     "eslint:html": "eslint --format html ./src/* -o ./reports/eslint/index.html",
 
-    "istanbul:codecov": "istanbul cover _mocha -- -R test/unit/**/*.spec.js && codecov",
+    "istanbul:codecov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/unit/**/*.spec.js && codecov",
     "appveyor:test": "yarn test:unit",
     "travis:test": "yarn test:unit"
   },
