@@ -7,12 +7,12 @@
 
 # dreamui-js
 
-> Reports
+> Reports And API
 
 * [Code Style Report](http://xueboren.com/dreamui/js-reports/eslint)
-* [API Report](http://xueboren.com/dreamui/js-reports/esdoc)
 * [Unit Test Report](http://xueboren.com/dreamui/js-reports/mocha/mocha-report.html)
 * [Code Coverate Report](http://xueboren.com/dreamui/js-reports/coverage)
+* [API](http://xueboren.com/dreamui/js-reports/esdoc)
 
 > deamui js 工具函数库
 
