@@ -18,7 +18,9 @@ instrumentation:
 reporting:
   print: summary
   reports:
-      - lcovonly
+      - lcov
+      - html
+      - clover
   dir: ./reports/coverage
   watermarks:
       statements: [50, 80]
