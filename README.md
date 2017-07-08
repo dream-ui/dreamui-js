@@ -13,9 +13,12 @@
 * [Code Style Report](http://xueboren.com/dreamui/js-reports/eslint)
 * [Unit Test Report](http://xueboren.com/dreamui/js-reports/mocha/mocha-report.html)
 * [Code Coverate Report](http://xueboren.com/dreamui/js-reports/coverage)
-* [API](http://xueboren.com/dreamui/js-reports/esdoc)
 
-> deamui js lib
+> Document
+
+[API](http://xueboren.com/dreamui/js-reports/esdoc)
+
+> Todos
 
 - [x] Unit Test
 - [x] e2e Test
