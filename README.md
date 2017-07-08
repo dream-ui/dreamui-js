@@ -15,7 +15,7 @@
 * [Code Coverate Report](http://xueboren.com/dreamui/js-reports/coverage)
 * [API](http://xueboren.com/dreamui/js-reports/esdoc)
 
-> deamui js 工具函数库
+> deamui js lib
 
 - [x] dom: BindEvent
 - [x] Test : e2e
