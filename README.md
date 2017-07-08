@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/dream-ui/dreamui-js/branch/master/graph/badge.svg)](https://codecov.io/gh/dream-ui/dreamui-js)
+[![document](http://xueboren.com/dreamui/js-reports/esdoc/badge.svg)](http://xueboren.com/dreamui/js-reports/esdoc/source.html)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/w5pabhs28o2dfol4/branch/master?svg=true)](https://ci.appveyor.com/project/borenXue/dreamui-js)
 [![Travis CI](https://img.shields.io/travis/dream-ui/dreamui-js/master.svg)](https://travis-ci.org/dream-ui/dreamui-js)
 [![Circle CI](https://circleci.com/gh/dream-ui/dreamui-js/tree/master.svg?style=svg)](https://circleci.com/gh/dream-ui/dreamui-js/tree/master)
