@@ -17,7 +17,7 @@
 
 > deamui js 工具函数库
 
-- [*] dom: BindEvent
-- [*] Test : e2e
-- [] DataFormatter
-- [] CommonRegex
+- [x] dom: BindEvent
+- [x] Test : e2e
+- [ ] DataFormatter
+- [ ] CommonRegex
