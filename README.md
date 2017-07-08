@@ -17,8 +17,9 @@
 
 > deamui js lib
 
+- [x] Unit Test
+- [x] e2e Test
 - [x] dom: BindEvent
-- [x] Test : e2e
 - [ ] DataFormatter
 - [ ] CommonRegex
 
