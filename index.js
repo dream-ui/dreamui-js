@@ -13,7 +13,7 @@ const {
   isWeChat,
   isQQ,
   copyText
-} = require('./broswer/broswer')
+} = require('./src/broswer/broswer')
 
 const {
   getParam,
@@ -21,12 +21,23 @@ const {
   addParam,
   addParams,
   parseUrl
-} = require('./broswer/Url')
+} = require('./src/broswer/Url')
 
-const dom = require('./broswer/dom/Dom')
+const {
+  bindEvent,
+  unBindEvent,
+  bindOnce,
+  transitionEnd,
+  hasClass,
+  addClass,
+  removeClass,
+  createDom,
+  getStyle,
+  setStyle
+} = require('./src/broswer/dom/Dom')
 
 // const broswer = require('./broswer/broswer')
-const PubSub = require('./event/event')
+const PubSub = require('./src/event/event')
 
 const {
   compareVersion,
@@ -36,7 +47,7 @@ const {
   camelPascalToHyphe,
   hypheToPascal,
   hypheToCamel
-} = require('./base/index')
+} = require('./src/base/index')
 
 module.exports = {
   broswer: {
@@ -50,7 +61,18 @@ module.exports = {
       addParams,
       parseUrl
     },
-    dom
+    dom: {
+      bindEvent,
+      unBindEvent,
+      bindOnce,
+      transitionEnd,
+      hasClass,
+      addClass,
+      removeClass,
+      createDom,
+      getStyle,
+      setStyle
+    }
   },
   PubSub,
   nameStyle: {

@@ -30,7 +30,7 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 
 module.exports = {
   entry: {
-    'tools_js': path.resolve(__dirname, './src/index.js'),
+    'tools_js': path.resolve(__dirname, './index.js'),
     'auto_test': path.resolve(__dirname, './test/e2e/html/auto_test.js')
   },
   output: {

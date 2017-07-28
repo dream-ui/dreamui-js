@@ -2,7 +2,8 @@
 const {
   bindEvent,
   unBindEvent,
-  bindOnce
+  bindOnce,
+  transitionEnd
 } = require('./BindEvent')
 
 const {
@@ -24,6 +25,7 @@ export default {
   bindEvent,
   unBindEvent,
   bindOnce,
+  transitionEnd,
   hasClass,
   addClass,
   removeClass,
