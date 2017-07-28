@@ -1,6 +1,7 @@
 // const style = require('./../../src/dom/Style');
 const { createDom } = require('./../../../src/broswer/dom/CreateDom');
 // const classs = require('./../../src/dom/Class');
+const { transitionEnd } = require('./../../../src/broswer/dom/BindEvent');
 
 window.createDom = createDom;
 window.classs = require('./../../../src/broswer/dom/Class');
@@ -49,3 +50,14 @@ const ele = createDom({
   ]
 });
 document.body.appendChild(ele);
+
+const transitionBtn = document.querySelector('#transition-end-test .start-btn');
+if (transitionBtn) {
+  transitionBtn.onclick = () => {
+    const spanEle = document.querySelector('#transition-end-test .transition-span');
+    transitionEnd(spanEle, (e) => {
+      document.querySelector('#transition-end-test div.result-tip').innerHTML = 'ok';
+    });
+    spanEle.style.width = '95%';
+  };
+}
