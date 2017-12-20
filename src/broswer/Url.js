@@ -1,11 +1,20 @@
 /**
  * 获取参数 key 的值
- * @param {string} url
  * @param {string} key
- * @return {string | int} 该 key 对应的值
+ * @param {string} url
+ * @return {string} 该 key 对应的值
  */
-export const getParam = (url, key) => {
-
+export const getParam = (key, url = window.location.href) => {
+  const search = url.substring(url.indexOf('?') + 1)
+  if (search === '') {
+    return
+  }
+  const params = {}
+  const kvs = search.split('&')
+  for (const kv of kvs) {
+    params[kv.split('=')[0]] = kv.split('=')[1]
+  }
+  return params[key]
 }
 
 /**

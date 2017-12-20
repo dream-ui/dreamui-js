@@ -9,13 +9,13 @@
 /**
  * Broswer Module
  */
-const {
+export const {
   isWeChat,
   isQQ,
   copyText
 } = require('./src/broswer/broswer')
 
-const {
+export const {
   getParam,
   hasParam,
   addParam,
@@ -23,7 +23,7 @@ const {
   parseUrl
 } = require('./src/broswer/Url')
 
-const {
+export const {
   bindEvent,
   unBindEvent,
   bindOnce,
@@ -37,9 +37,9 @@ const {
 } = require('./src/broswer/dom/Dom')
 
 // const broswer = require('./broswer/broswer')
-const PubSub = require('./src/event/event')
+export const PubSub = require('./src/event/event')
 
-const {
+export const {
   compareVersion,
   toThousandBit,
   pascalToCamel,
@@ -49,7 +49,7 @@ const {
   hypheToCamel
 } = require('./src/base/index')
 
-module.exports = {
+export default {
   broswer: {
     isWeChat,
     isQQ,

@@ -3,16 +3,16 @@
  * 手机浏览器存在 Version/XX.XX Mobile/XX.XX
  * window.navigator.standalone
  */
-const isWeChat = (userAgent) => {
+export const isWeChat = (userAgent) => {
   const ua = userAgent || window.navigator.userAgent
   return /MicroMessenger/i.test(ua) && /NetType/i.test(ua) && /Language/i.test(ua)
 }
 
-const isQQ = (userAgent) => {
+export const isQQ = (userAgent) => {
   return /qq/i.test(userAgent || window.navigator.userAgent)
 }
 
-const copyText = (element, okCallback, errorCallback) => {
+export const copyText = (element, okCallback, errorCallback) => {
   // ie使用clipboardData实现
   if (window.clipboardData) {
     window.clipboardData.clearData()
@@ -44,10 +44,4 @@ const copyText = (element, okCallback, errorCallback) => {
   }
 
   if (errorCallback) errorCallback()
-}
-
-module.exports = {
-  isWeChat,
-  isQQ,
-  copyText
 }

@@ -155,4 +155,3 @@ class PubSub {
 PubSub.instanceCache = null
 
 export default PubSub
-module.exports = PubSub
