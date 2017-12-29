@@ -16,6 +16,12 @@ export const {
 } = require('./src/broswer/broswer')
 
 export const {
+  setLocalStorage,
+  getLocalStorage,
+  initLocalStorage
+} = require('./src/broswer/localStorage')
+
+export const {
   getParam,
   hasParam,
   addParam,
